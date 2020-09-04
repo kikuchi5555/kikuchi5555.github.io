@@ -2,6 +2,7 @@
   "name": "app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://github.com/kikuchi5555/kikuchi5555.github.io/",
   "dependencies": {
     "cra-template-typescript": "1.0.3",
     "react": "^16.13.1",
