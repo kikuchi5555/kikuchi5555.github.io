@@ -5,6 +5,7 @@
   "homepage": "https://github.com/kikuchi5555/kikuchi5555.github.io/",
   "dependencies": {
     "cra-template-typescript": "1.0.3",
+    "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3"
