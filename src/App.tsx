@@ -1,16 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
+import GitHubIcon from './github_icon.svg';
 import './App.scss';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          ああああ
-        </p>
-      </header>
+      <div className="detail">
+        <h1 className="detail__heading">Kikuchi Tetsuro</h1>
+        <p className="detail__text">Front-end Development<br/>Web Design</p>
+        <a className="logo" href="https://github.com/kikuchi5555" target="_blank">
+          <img src={GitHubIcon} alt="logo" />
+        </a>
+      </div>
+      <div className="skill">
+        <ul className="skill__list">
+          <li className="skill__item">HTML （pug / slim / ejs）</li>
+          <li className="skill__item">CSS (Sass / SCSS / Stylus)</li>
+          <li className="skill__item">JavaScript (ECMAScript 6 or later / TypeScript)</li>
+          <li className="skill__item">Vue.js</li>
+          <li className="skill__item">React</li>
+          <li className="skill__item">Angular.js</li>
+          <li className="skill__item">Ruby on Rails</li>
+          <li className="skill__item">Git</li>
+        </ul>
+      </div>
     </div>
   );
 }
