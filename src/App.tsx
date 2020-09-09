@@ -16,12 +16,13 @@ function App() {
         <ul className="skill__list">
           <li className="skill__item">HTML （pug / slim / ejs）</li>
           <li className="skill__item">CSS (Sass / SCSS / Stylus)</li>
-          <li className="skill__item">JavaScript (ECMAScript 6 or later / TypeScript)</li>
+          <li className="skill__item">JavaScript (ES6 or later)</li>
+          <li className="skill__item">jQuery</li>
+          <li className="skill__item">TypeScript</li>
           <li className="skill__item">Vue.js</li>
           <li className="skill__item">React</li>
           <li className="skill__item">Angular.js</li>
           <li className="skill__item">Ruby on Rails</li>
-          <li className="skill__item">Git</li>
         </ul>
       </div>
     </div>

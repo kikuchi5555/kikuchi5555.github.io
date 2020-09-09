@@ -71,9 +71,14 @@
 
   &__item {
     margin-bottom: .5em;
+    padding-left: 16px;
     list-style: none;
+    position: relative;
     &:before {
-      content: '- '
+      position: absolute;
+      left: 0;
+      top: 0;
+      content: '-';
     }
   }
 }
