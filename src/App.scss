@@ -5,13 +5,13 @@
   padding-right: 48px;
   text-align: right;
   color: #333;
-  margin-top: 40vh;
+  margin-top: 45vh;
   @media screen and (max-width: 767px) {
-    padding-right: 8%;
+    padding-right: 5%;
   }
 
   &__heading {
-    font-size: 32px;
+    font-size: 24px;
     font-weight: 400;
     line-height: 1;
     background: #333;
@@ -20,22 +20,21 @@
     padding-top: .2em;
     padding-bottom: .1em;
     white-space: nowrap;
-    @media screen and (max-width: 767px) {
-      font-size: 28px;
-    }
+    margin: 0;
   }
 
   &__text {
-    font-size: 16px;
+    margin: 1em 0 0;
+    font-size: 12px;
     line-height: 2;
   }
 }
 
 .logo {
-  margin-top: 8px;
+  margin-top: 16px;
   display: inline-block;
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   padding: 8px;
   background: #fff;
   border-radius: 50%;
@@ -43,8 +42,8 @@
   margin-right: -8px;
   @media screen and (max-width: 767px) {
     padding: 0;
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
     margin-right: 0;
   }
   &:hover {
@@ -54,18 +53,27 @@
   }
 
   img {
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
   }
 }
 
 .skill {
   position: absolute;
   left: 0;
-  top: 0;
+  top: 20px;
   font-size: 12px;
+
+  &__list {
+    margin: 0;
+    padding: 0 0 0 20px;
+  }
 
   &__item {
     margin-bottom: .5em;
+    list-style: none;
+    &:before {
+      content: '- '
+    }
   }
 }
