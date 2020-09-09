@@ -1,12 +1,13 @@
 .detail {
-  position: absolute;
-  top: 50%;
-  right: 48px;
-  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-right: 48px;
   text-align: right;
   color: #333;
+  margin-top: 40vh;
   @media screen and (max-width: 767px) {
-    right: 8%;
+    padding-right: 8%;
   }
 
   &__heading {
@@ -59,6 +60,9 @@
 }
 
 .skill {
+  position: absolute;
+  left: 0;
+  top: 0;
   font-size: 12px;
 
   &__item {
