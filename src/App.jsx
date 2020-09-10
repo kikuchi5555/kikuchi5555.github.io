@@ -1,11 +1,11 @@
 import React, { useRef, useState, useEffect } from 'react';
 import GitHubIcon from './github_icon.svg';
 import './App.scss';
-import { Canvas, useFrame } from 'react-three-fiber'
+import Animation from './Animation'
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <div className="detail">
         <h1 className="detail__heading"><EnterText>Kikuchi Tetsuro</EnterText></h1>
         <p className="detail__text"><EnterText>Front-end Development</EnterText><br/><EnterText>Web Design</EnterText></p>
@@ -26,19 +26,12 @@ function App() {
           <li className="skill__item"><EnterText>Ruby on Rails</EnterText></li>
         </ul>
       </div>
-      <div>
-      <Canvas>
-        <ambientLight />
-        <pointLight position={[10, 10, 10]} />
-        <Box position={[-1.2, 0, 0]} />
-        <Box position={[1.2, 0, 0]} />
-      </Canvas>
-      </div>
+      <Animation></Animation>
     </div>
   );
 }
 
-function EnterText(props: any) {
+function EnterText(props) {
   const characterList = props.children.split('')
 
   const [text, setText] = useState('');
@@ -56,39 +49,12 @@ function EnterText(props: any) {
       if (i > characterList.length - 1) {
         clearInterval(interval);
       }
-    }, 20);
+    }, 50);
+  // eslint-disable-next-line
   }, []);
 
   return (
     <span>{text}</span>
-  )
-}
-
-function Box(props: any) {
-  // This reference will give us direct access to the mesh
-  const mesh = useRef(null)
-
-  // Set up state for the hovered and active state
-  const [hovered, setHover] = useState(false)
-  const [active, setActive] = useState(false)
-
-  // Rotate mesh every frame, this is outside of React without overhead
-  useFrame(() => {
-    const current = mesh.current as any
-    return (current.rotation.x = current.rotation.y += 0.01)
-  })
-
-  return (
-    <mesh
-      {...props}
-      ref={mesh}
-      scale={active ? [1.5, 1.5, 1.5] : [1, 1, 1]}
-      onClick={(e) => setActive(!active)}
-      onPointerOver={(e) => setHover(true)}
-      onPointerOut={(e) => setHover(false)}>
-      <boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
-      <meshStandardMaterial attach="material" color={hovered ? 'hotpink' : 'orange'} />
-    </mesh>
   )
 }
 
