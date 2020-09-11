@@ -1,34 +1,46 @@
 import React, { useRef, useState, useEffect } from 'react';
-import GitHubIcon from './github_icon.svg';
 import './App.scss';
-import Animation from './Animation'
+// import Animation from './Animation'
 
 function App() {
   return (
     <div className="app">
       <div className="detail">
-        <h1 className="detail__heading"><EnterText>Kikuchi Tetsuro</EnterText></h1>
-        <p className="detail__text"><EnterText>Front-end Development</EnterText><br/><EnterText>Web Design</EnterText></p>
-        <a className="logo" href="https://github.com/kikuchi5555" target="_blank" rel="noopener noreferrer">
-          <img src={GitHubIcon} alt="logo" />
-        </a>
+        <LazyLoad duration={1000}>
+          <h1 className="detail__heading"><EnterText>Kikuchi Tetsuro</EnterText></h1>
+        </LazyLoad>
+        <p className="detail__text">
+          <LazyLoad duration={1600}><EnterText>Front-end Development</EnterText><br/></LazyLoad>
+          <LazyLoad duration={2400}><EnterText>Web Design</EnterText><br/></LazyLoad>
+          <LazyLoad duration={2800}><a href="https://github.com/kikuchi5555" target="_blank" rel="noopener noreferrer"><EnterText>github</EnterText></a></LazyLoad>
+        </p>
       </div>
       <div className="skill">
         <ul className="skill__list">
-          <li className="skill__item"><EnterText>HTML （pug / slim / ejs）</EnterText></li>
-          <li className="skill__item"><EnterText>CSS (Sass / SCSS / Stylus)</EnterText></li>
-          <li className="skill__item"><EnterText>JavaScript (ES6 or later)</EnterText></li>
-          <li className="skill__item"><EnterText>jQuery</EnterText></li>
-          <li className="skill__item"><EnterText>TypeScript</EnterText></li>
-          <li className="skill__item"><EnterText>Vue.js</EnterText></li>
-          <li className="skill__item"><EnterText>React</EnterText></li>
-          <li className="skill__item"><EnterText>Angular.js</EnterText></li>
-          <li className="skill__item"><EnterText>Ruby on Rails</EnterText></li>
+          <LazyLoad duration={3000}><li className="skill__item"><EnterText>HTML(pug/slim/ejs)</EnterText></li></LazyLoad>
+          <LazyLoad duration={4000}><li className="skill__item"><EnterText>CSS(Sass/SCSS/Stylus)</EnterText></li></LazyLoad>
+          <LazyLoad duration={5000}><li className="skill__item"><EnterText>JavaScript(ES6 or later)</EnterText></li></LazyLoad>
+          <LazyLoad duration={6000}><li className="skill__item"><EnterText>jQuery</EnterText></li></LazyLoad>
+          <LazyLoad duration={6600}><li className="skill__item"><EnterText>TypeScript</EnterText></li></LazyLoad>
+          <LazyLoad duration={7200}><li className="skill__item"><EnterText>Vue.js</EnterText></li></LazyLoad>
+          <LazyLoad duration={7600}><li className="skill__item"><EnterText>React</EnterText></li></LazyLoad>
+          <LazyLoad duration={8000}><li className="skill__item"><EnterText>Angular.js</EnterText></li></LazyLoad>
+          <LazyLoad duration={8500}><li className="skill__item"><EnterText>Ruby on Rails</EnterText></li></LazyLoad>
         </ul>
       </div>
-      <Animation></Animation>
+      {/* <Animation></Animation> */}
     </div>
   );
+}
+
+function LazyLoad(props) {
+  const [isLoad, setLoad] = useState(true)
+
+  setTimeout(() => {
+    setLoad(false)
+  }, props.duration)
+
+  return isLoad ? '' : props.children
 }
 
 function EnterText(props) {
@@ -49,7 +61,7 @@ function EnterText(props) {
       if (i > characterList.length - 1) {
         clearInterval(interval);
       }
-    }, 50);
+    }, 40);
   // eslint-disable-next-line
   }, []);
 
