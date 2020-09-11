@@ -3,15 +3,13 @@ import './App.scss';
 // import Animation from './Animation'
 
 function App() {
-  const startDetailAnim = 1000
-  const startSkillAnim = 2000
+  const startDetailAnim = 2500
+  const startSkillAnim = 3000
 
   return (
     <div className="app">
       <div className="detail">
-        <LazyLoad duration={startDetailAnim}>
-          <h1 className="detail__heading"><EnterText>Kikuchi Tetsuro</EnterText></h1>
-        </LazyLoad>
+        <h1 className="detail__heading"><LazyLoad duration={startDetailAnim}><EnterText>Kikuchi Tetsuro</EnterText></LazyLoad></h1>
         <p className="detail__text">
           <LazyLoad duration={startDetailAnim + 400}><EnterText>Front-end Development</EnterText><br/></LazyLoad>
           <LazyLoad duration={startDetailAnim + 800}><EnterText>Web Design</EnterText><br/></LazyLoad>

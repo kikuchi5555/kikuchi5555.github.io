@@ -22,6 +22,7 @@
   }
 
   &__heading {
+    position: relative;
     font-size: 24px;
     font-weight: 400;
     line-height: 1;
@@ -33,6 +34,19 @@
     padding-bottom: .1em;
     white-space: nowrap;
     margin: 0;
+
+    &:before {
+      content: '';
+      position: absolute;
+      right: 100%;
+      bottom: 0;
+      display: inline-block;
+      height: 3px;
+      width: .7em;
+      background: #333;
+      animation: cursorAnim .5s linear .5s 4 alternate;
+      visibility: hidden;
+    }
   }
 
   &__text {
@@ -40,24 +54,6 @@
     font-size: 12px;
     line-height: 2;
     height: 4em;
-  }
-}
-
-.logo {
-  margin-top: 16px;
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  transition: .3s ease-in-out;
-  &:hover {
-    @media screen and (min-width: 768px) {
-      transform: scale(1.1);
-    }
-  }
-
-  img {
-    width: 24px;
-    height: 24px;
   }
 }
 
@@ -87,5 +83,15 @@
       top: 0;
       content: '-';
     }
+  }
+}
+
+@keyframes cursorAnim {
+  from {
+    visibility: visible;
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
