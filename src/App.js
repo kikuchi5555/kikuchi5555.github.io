@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import './App.scss';
-// import Animation from './Animation'
+import Animation from './Animation'
 
 function App() {
   const startDetailAnim = 2500
@@ -28,7 +28,7 @@ function App() {
           <LazyLoad duration={startSkillAnim + 1800}><li className="skill__item"><EnterText>Ruby on Rails</EnterText></li></LazyLoad>
         </ul>
       </div>
-      {/* <Animation></Animation> */}
+      <Animation></Animation>
     </div>
   );
 }
