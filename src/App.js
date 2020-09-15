@@ -4,7 +4,7 @@ import Animation from './Animation'
 
 function App() {
   const startDetailAnim = 2500
-  const startSkillAnim = 3000
+  const startSkillAnim = 3500
 
   return (
     <div className="app">
