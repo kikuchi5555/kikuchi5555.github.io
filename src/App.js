@@ -18,8 +18,8 @@ function App() {
       </div>
       <div className="skill">
         <ul className="skill__list">
-          <LazyLoad duration={startSkillAnim}><li className="skill__item"><EnterText>CSS(Sass/SCSS/Stylus)</EnterText></li></LazyLoad>
-          <LazyLoad duration={startSkillAnim + 400}><li className="skill__item"><EnterText>JavaScript(ES6 or later)</EnterText></li></LazyLoad>
+          <LazyLoad duration={startSkillAnim}><li className="skill__item"><EnterText>CSS/SCSS/Sass/Stylus</EnterText></li></LazyLoad>
+          <LazyLoad duration={startSkillAnim + 400}><li className="skill__item"><EnterText>JavaScript</EnterText></li></LazyLoad>
           <LazyLoad duration={startSkillAnim + 800}><li className="skill__item"><EnterText>jQuery</EnterText></li></LazyLoad>
           <LazyLoad duration={startSkillAnim + 1000}><li className="skill__item"><EnterText>TypeScript</EnterText></li></LazyLoad>
           <LazyLoad duration={startSkillAnim + 1200}><li className="skill__item"><EnterText>Vue.js</EnterText></li></LazyLoad>
