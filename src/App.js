@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="app">
       <div className="detail">
-        <h1 className="detail__heading"><LazyLoad duration={startDetailAnim}><EnterText>Kikuchi Tetsuro</EnterText></LazyLoad></h1>
+        <h1 className="detail__heading"><LazyLoad duration={startDetailAnim}><EnterText>nodel Inc.</EnterText></LazyLoad></h1>
         <p className="detail__text">
           <LazyLoad duration={startDetailAnim + 400}><EnterText>Front-end Development</EnterText><br/></LazyLoad>
           <LazyLoad duration={startDetailAnim + 800}><EnterText>Web Design</EnterText><br/></LazyLoad>
