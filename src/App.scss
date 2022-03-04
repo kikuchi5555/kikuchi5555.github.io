@@ -1,8 +1,9 @@
 .mv {
   position: relative;
   width: 100%;
-  min-height: 100vh;
   overflow: hidden;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
 }
 
 .logo {
