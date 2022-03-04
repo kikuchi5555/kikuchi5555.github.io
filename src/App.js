@@ -1,16 +1,20 @@
 import React, { useRef, useState, useEffect } from 'react';
 import './App.scss';
 import Animation from './Animation'
+import Logo from './logo.svg'
 
 function App() {
-  const startDetailAnim = 2500
-  const startSkillAnim = 3000
+  const startDetailAnim = 1500
+  const startSkillAnim = 2000
 
   return (
     <div className="app">
       <div className="mv">
+        <div className="logo">
+          <img src={Logo} alt="nodel Inc." />
+        </div>
         <div className="detail">
-          <h1 className="detail__heading"><LazyLoad duration={startDetailAnim}><EnterText>nodel Inc.</EnterText></LazyLoad></h1>
+          {/* <h1 className="detail__heading"><LazyLoad duration={startDetailAnim}><EnterText>nodel Inc.</EnterText></LazyLoad></h1> */}
           <p className="detail__text">
             <LazyLoad duration={startDetailAnim + 400}><EnterText>Front-end Development</EnterText><br/></LazyLoad>
             <LazyLoad duration={startDetailAnim + 800}><EnterText>Web Design</EnterText><br/></LazyLoad>
