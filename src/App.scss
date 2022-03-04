@@ -47,7 +47,7 @@
 
   &__text {
     margin: 0;
-    font-size: 12px;
+    font-size: 1.2rem;
     line-height: 2;
     height: 4em;
   }
@@ -57,7 +57,7 @@
   position: absolute;
   left: 0;
   top: 20px;
-  font-size: 12px;
+  font-size: 1.2rem;
   z-index: 1;
   color: #333;
 
@@ -89,27 +89,39 @@
     max-width: 800px;
     margin: 0 auto;
     border-collapse: collapse;
-    background: rgba(255,255,255,0.7);
+    background: rgba(255,255,255,0.5);
+    border: 1px solid #000;
+    tr {
+      &:not(:first-child) {
+        border-top: 1px solid #000;
+      }
+    }
     th {
       white-space: nowrap;
     }
     th, td {
       font-weight: normal;
-      border: 1px solid #000;
-      padding: 1em;
+      padding: 1.5em 1em;
       text-align: left;
-      font-size: 14px;
+      font-size: 1.4rem;
       @media screen and (max-width: 768px) {
-        font-size: 12px;
+        font-size: 1.2rem;
       }
     }
   }
   ul {
-    padding: 0 0 0 1em;
+    padding: 0;
     margin: 0;
     li {
-      padding: 0;
+      padding: 0 0 0 1em;
       margin: 0;
+      list-style: none;
+      position: relative;
+      &::before {
+        content: "・";
+        position: absolute;
+        left: 0;
+      }
       + li {
         margin-top: 8px;
       }
@@ -122,12 +134,12 @@
   bottom: 20px;
   text-align: center;
   width: 100%;
-  font-size: 12px;
+  font-size: 1.2rem;
 }
 
 .copyright {
   text-align: center;
-  font-size: 12px;
+  font-size: 1.2rem;
   padding-bottom: 40px;
   @media screen and (max-width: 768px) {
     padding-bottom: 20px;
@@ -148,11 +160,9 @@
   from {
     opacity: 0;
     filter: blur(500px);
-    transform: matrix(1, 2, 0, 1, 0, 0) rotate(-200deg) scale(3);
   }
   to {
     opacity: 1;
     filter: blur(0);
-    transform: matrix(1, 0, 0, 1, 0, 0) rotate(0) scale(1);
   }
 }
