@@ -12,11 +12,11 @@
   position: absolute;
   left: 50%;
   top: calc(50% - 20px);
-  margin-left: -75px;
+  margin-left: -60px;
   opacity: 0;
   animation: logoAnim 3s ease-out forwards;
   img {
-    width: 150px;
+    width: 120px;
     height: auto;
   }
 }
