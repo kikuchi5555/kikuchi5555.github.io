@@ -36,9 +36,6 @@ function App() {
         <div className='scroll'>
           <LazyLoad duration={startSkillAnim + 2400}><EnterText>scroll down ↓</EnterText></LazyLoad>
         </div>
-        <div className="canvas-container">
-          <Animation></Animation>
-        </div>
       </div>
       <div className="company-info">
         <table>
@@ -75,6 +72,9 @@ function App() {
         </table>
       </div>
       <div className='copyright'>2022, nodel Inc.</div>
+      <div className="canvas-container">
+        <Animation></Animation>
+      </div>
     </div>
   );
 }
