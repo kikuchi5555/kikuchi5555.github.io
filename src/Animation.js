@@ -32,8 +32,7 @@ function Stars() {
 export default function Animation() {
   return (
     <Canvas resize={{
-      scroll: false,
-      debounce: { scroll: 50, resize: 0 }
+      scroll: false
     }}>
       <Stars />
     </Canvas>
