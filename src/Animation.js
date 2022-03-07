@@ -1,14 +1,15 @@
 import * as THREE from 'three/src/Three'
-import React, { useRef, useMemo } from 'react'
+import React, { useState, useRef, useMemo } from 'react'
 
 import { Canvas, useFrame } from 'react-three-fiber'
 
 function Stars() {
   let group = useRef()
-  let theta = 0
+  const [theta, setTheta] = useState(0);
   useFrame(() => {
+    setTheta(theta + 0.01)
     // Some things maybe shouldn't be declarative, we're in the render-loop here with full access to the instance
-    const r = 3 * Math.sin(THREE.Math.degToRad((theta += 0.01)))
+    const r = 3 * Math.sin(THREE.Math.degToRad((theta)))
     const s = Math.sin(THREE.Math.degToRad(theta * 10))
     group.current.rotation.set(r, r, r)
     group.current.scale.set(s, s, s)
