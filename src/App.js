@@ -11,10 +11,10 @@ function App() {
     <div className="app">
       <div className="mv">
         <div className="logo">
-          <img src={Logo} alt="nodel Inc." />
+          <img src={Logo} alt="nodel inc." />
         </div>
         <div className="detail">
-          {/* <h1 className="detail__heading"><LazyLoad duration={startDetailAnim}><EnterText>nodel Inc.</EnterText></LazyLoad></h1> */}
+          {/* <h1 className="detail__heading"><LazyLoad duration={startDetailAnim}><EnterText>nodel inc.</EnterText></LazyLoad></h1> */}
           <p className="detail__text">
             <LazyLoad duration={startDetailAnim + 400}><EnterText>Front-end Development</EnterText><br/></LazyLoad>
             <LazyLoad duration={startDetailAnim + 800}><EnterText>Web Design</EnterText><br/></LazyLoad>
@@ -41,7 +41,7 @@ function App() {
         <table>
           <tbody>
             <tr>
-              <th>社名</th><td>株式会社nodel（ノデル）<br />nodel Inc.</td>
+              <th>社名</th><td>株式会社nodel（ノデル）<br />nodel inc.</td>
             </tr>
             <tr>
               <th>所在地</th><td>東京都武蔵野市吉祥寺南町2丁目2-5 ワイムビジネスプラザ吉祥寺 632号室</td>
@@ -71,7 +71,7 @@ function App() {
           </tbody>
         </table>
       </div>
-      <div className='copyright'>2022, nodel Inc.</div>
+      <div className='copyright'>2022, nodel inc.</div>
       <div className="canvas-container">
         <Animation></Animation>
       </div>
