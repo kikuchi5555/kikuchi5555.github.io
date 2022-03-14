@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import './App.scss';
 import Animation from './Animation'
+import LogoBg from './LogoBg'
 import Logo from './logo.svg'
 
 function App() {
@@ -72,6 +73,9 @@ function App() {
         </table>
       </div>
       <div className='copyright'>2022, nodel inc.</div>
+      <div className="canvas-container">
+        <LogoBg />
+      </div>
       <div className="canvas-container">
         <Animation></Animation>
       </div>
