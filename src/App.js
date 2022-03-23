@@ -1,8 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react';
-import './App.scss';
+import './css/App.scss';
 import Animation from './Animation'
 import LogoBg from './LogoBg'
-import Logo from './logo.svg'
+// import Logo from './img/logo.svg'
 
 function App() {
   const startDetailAnim = 1500
@@ -11,9 +11,9 @@ function App() {
   return (
     <div className="app">
       <div className="mv">
-        <div className="logo">
+        {/* <div className="logo">
           <img src={Logo} alt="nodel inc." />
-        </div>
+        </div> */}
         <div className="detail">
           {/* <h1 className="detail__heading"><LazyLoad duration={startDetailAnim}><EnterText>nodel inc.</EnterText></LazyLoad></h1> */}
           <p className="detail__text">
