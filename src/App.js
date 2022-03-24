@@ -45,7 +45,7 @@ function App() {
               <th>社名</th><td>株式会社nodel（ノデル）<br />nodel inc.</td>
             </tr>
             <tr>
-              <th>所在地</th><td>東京都武蔵野市吉祥寺南町2丁目2-5 ワイムビジネスプラザ吉祥寺 632号室</td>
+              <th>所在地</th><td>東京都武蔵野市吉祥寺南町2丁目2-5</td>
             </tr>
             <tr>
               <th>役員</th><td>代表取締役  菊地 哲郎</td>
@@ -57,7 +57,7 @@ function App() {
               <th>資本</th><td>100万円</td>
             </tr>
             <tr>
-              <th>事業内容</th>
+              <th>事業<br />内容</th>
               <td>
                 <ul>
                   <li>ホームページの企画、デザイン、制作、運営及び保守</li>
@@ -73,7 +73,7 @@ function App() {
         </table>
       </div>
       <div className='copyright'>2022, nodel inc.</div>
-      <div className="canvas-container">
+      <div className="logo-container">
         <LogoBg />
       </div>
       <div className="canvas-container">
