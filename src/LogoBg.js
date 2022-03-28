@@ -26,7 +26,7 @@ class CreateParticles {
     this.data = {
       text: 'nodel inc.',
       amount: 1500,
-      particleSize: 1,
+      particleSize: .5,
       particleColor: 0xffffff,
       textSize: 16,
       area: 80,
@@ -228,7 +228,7 @@ class CreateParticles {
     geometry.computeBoundingBox();
   
     const xMid = - 0.5 * ( geometry.boundingBox.max.x - geometry.boundingBox.min.x );
-    const yMid =  (geometry.boundingBox.max.y - geometry.boundingBox.min.y)/1.5;
+    const yMid =  (geometry.boundingBox.max.y - geometry.boundingBox.min.y);
 
     geometry.center();
 
