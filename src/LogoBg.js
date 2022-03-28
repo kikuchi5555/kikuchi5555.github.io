@@ -18,6 +18,7 @@ class CreateParticles {
     
     this.raycaster = new THREE.Raycaster();
     this.mouse = new THREE.Vector2(0, 0);
+    this.clientPosition = new THREE.Vector2(0, 0);
     
     this.colorChange = new THREE.Color();
 
@@ -73,6 +74,7 @@ class CreateParticles {
 
   bindEvents() {
     document.addEventListener( 'mousemove', this.onMouseMove.bind( this ));
+    document.addEventListener( 'scroll', this.onScroll.bind( this ));
     // document.addEventListener( 'mousedown', this.onMouseDown.bind( this ));
     // document.addEventListener( 'mouseup', this.onMouseUp.bind( this ));
   }
@@ -98,7 +100,20 @@ class CreateParticles {
     this.data.ease = .05;
   }
 
+  onScroll(event) {
+    if (window.innerWidth < 769) {
+      this.mouse.x = -1.;
+      this.mouse.y = -1.;
+      return;
+    }
+      this.mouse.x = ( this.clientPosition.x / window.innerWidth ) * 2 - 1;
+      this.mouse.y = - ( (this.clientPosition.y + window.pageYOffset) / window.innerHeight ) * 2 + 1;
+  }
+
   onMouseMove(event) { 
+    this.clientPosition.x = event.clientX;
+    this.clientPosition.y = event.clientY;
+
     if (window.innerWidth < 769) {
       this.mouse.x = -1.;
       this.mouse.y = -1.;
