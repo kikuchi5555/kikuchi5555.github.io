@@ -73,7 +73,7 @@ class CreateParticles {
 
   bindEvents() {
     document.addEventListener( 'mousemove', this.onMouseMove.bind( this ));
-    document.addEventListener( 'touchmove', this.onMouseMove.bind( this ));
+    document.addEventListener( 'touchstart', this.onMouseMove.bind( this ));
     // document.addEventListener( 'mousedown', this.onMouseDown.bind( this ));
     // document.addEventListener( 'mouseup', this.onMouseUp.bind( this ));
   }
@@ -231,7 +231,7 @@ class CreateParticles {
     geometry.computeBoundingBox();
   
     const xMid = - 0.5 * ( geometry.boundingBox.max.x - geometry.boundingBox.min.x );
-    const yMid =  (geometry.boundingBox.max.y - geometry.boundingBox.min.y);
+    const yMid = - 0.5 * (geometry.boundingBox.max.y - geometry.boundingBox.min.y);
 
     geometry.center();
 
@@ -281,7 +281,7 @@ class CreateParticles {
     this.scene.add( this.svgGroup );
 
     let geoParticles = new THREE.BufferGeometry().setFromPoints( thePoints );
-    geoParticles.translate( xMid, -yMid, 0 );
+    geoParticles.translate( xMid, yMid, 0 );
     geoParticles.scale( .1, -.1, 0 );
         
     geoParticles.setAttribute( 'customColor', new THREE.Float32BufferAttribute( colors, 3 ) );
