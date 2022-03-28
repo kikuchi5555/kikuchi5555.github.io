@@ -27,7 +27,7 @@ class CreateParticles {
     this.data = {
       text: 'nodel inc.',
       amount: 1500,
-      particleSize: .2,
+      particleSize: .4,
       particleColor: 0xffffff,
       textSize: 16,
       area: 80,
