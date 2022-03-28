@@ -8,6 +8,14 @@ function App() {
   const startDetailAnim = 1500
   const startSkillAnim = 2000
 
+  useEffect(() => {
+    const pointer = document.querySelector('#pointer');
+    document.addEventListener('mousemove', (event) => {
+      pointer.style.left = `${event.clientX}px`;
+      pointer.style.top = `${event.clientY}px`;
+    })
+  }, []);
+
   return (
     <div className="app">
       <div className="mv">
@@ -19,19 +27,19 @@ function App() {
           <p className="detail__text">
             <LazyLoad duration={startDetailAnim + 400}><EnterText>Front-end Development</EnterText><br/></LazyLoad>
             <LazyLoad duration={startDetailAnim + 800}><EnterText>Web Design</EnterText><br/></LazyLoad>
-            <LazyLoad duration={startDetailAnim + 1200}><a href="https://github.com/kikuchi5555" target="_blank" rel="noopener noreferrer"><EnterText>GitHub →</EnterText></a></LazyLoad>
+            {/* <LazyLoad duration={startDetailAnim + 1200}><a href="https://github.com/kikuchi5555" target="_blank" rel="noopener noreferrer"><EnterText>GitHub →</EnterText></a></LazyLoad> */}
           </p>
         </div>
         <div className="skill">
           <ul className="skill__list">
             <LazyLoad duration={startSkillAnim}><li className="skill__item"><EnterText>CSS/SCSS/Sass/Stylus</EnterText></li></LazyLoad>
             <LazyLoad duration={startSkillAnim + 400}><li className="skill__item"><EnterText>JavaScript</EnterText></li></LazyLoad>
-            <LazyLoad duration={startSkillAnim + 800}><li className="skill__item"><EnterText>jQuery</EnterText></li></LazyLoad>
-            <LazyLoad duration={startSkillAnim + 1000}><li className="skill__item"><EnterText>TypeScript</EnterText></li></LazyLoad>
+            <LazyLoad duration={startSkillAnim + 800}><li className="skill__item"><EnterText>TypeScript</EnterText></li></LazyLoad>
+            <LazyLoad duration={startSkillAnim + 1000}><li className="skill__item"><EnterText>jQuery</EnterText></li></LazyLoad>
             <LazyLoad duration={startSkillAnim + 1200}><li className="skill__item"><EnterText>Vue.js</EnterText></li></LazyLoad>
             <LazyLoad duration={startSkillAnim + 1400}><li className="skill__item"><EnterText>React</EnterText></li></LazyLoad>
             <LazyLoad duration={startSkillAnim + 1600}><li className="skill__item"><EnterText>Angular.js</EnterText></li></LazyLoad>
-            <LazyLoad duration={startSkillAnim + 1800}><li className="skill__item"><EnterText>Ruby on Rails</EnterText></li></LazyLoad>
+            <LazyLoad duration={startSkillAnim + 1800}><li className="skill__item"><EnterText>etc..</EnterText></li></LazyLoad>
           </ul>
         </div>
         <div className='scroll'>
@@ -72,6 +80,7 @@ function App() {
           </tbody>
         </table>
       </div>
+      <div id="pointer" className='pointer' />
       <div className='copyright'>2022, nodel inc.</div>
       <div className="logo-container">
         <LogoBg />

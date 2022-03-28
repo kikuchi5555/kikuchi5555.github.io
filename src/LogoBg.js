@@ -73,7 +73,7 @@ class CreateParticles {
 
   bindEvents() {
     document.addEventListener( 'mousemove', this.onMouseMove.bind( this ));
-    document.addEventListener( 'touchstart', this.onMouseMove.bind( this ));
+    document.addEventListener( 'touchmove', this.onTouchMove.bind( this ));
     // document.addEventListener( 'mousedown', this.onMouseDown.bind( this ));
     // document.addEventListener( 'mouseup', this.onMouseUp.bind( this ));
   }
@@ -100,8 +100,17 @@ class CreateParticles {
   }
 
   onMouseMove(event) { 
+    if (window.innerWidth < 769) {
+      this.mouse.x = -1.;
+      this.mouse.y = -1.;
+      return;
+    }
       this.mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-      this.mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+      this.mouse.y = - ( (event.clientY + window.pageYOffset) / window.innerHeight ) * 2 + 1;
+  }
+
+  onTouchMove(event) { 
+    event.preventDefault();
   }
 
   render( level ){ 
@@ -134,7 +143,7 @@ class CreateParticles {
           let py = pos.getY(i);
           let pz = pos.getZ(i);
 
-          this.colorChange.setHSL( 0., 0. , 0. )
+          this.colorChange.setHSL( 0.05, 0.05, 0.05 )
           coulors.setXYZ( i, this.colorChange.r, this.colorChange.g, this.colorChange.b )
           coulors.needsUpdate = true;
 

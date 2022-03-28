@@ -194,12 +194,27 @@
   width: 100%;
   height: 100vh;
   min-height: 100vh;
-  @supports(-webkit-touch-callout: none) {
-    min-height: -webkit-fill-available;
-  }
   display: block;
   top: 0;
   left: 0;
   opacity: 0;
   animation: logoAnim 1s 1s ease-out forwards;
+  z-index: 1000;
+  @supports(-webkit-touch-callout: none) {
+    min-height: -webkit-fill-available;
+  }
+}
+
+.pointer {
+  position: fixed;
+  top: 120%;
+  left: 50%;
+  transform: translate(-4px, -4px);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(0,0,0, .5);
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 }
