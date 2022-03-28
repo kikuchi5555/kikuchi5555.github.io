@@ -35,7 +35,9 @@ class CreateParticles {
     }
 
     this.setup();
-    // this.bindEvents();
+    setTimeout(() => {
+      this.bindEvents();
+    }, 4000);
   }
 
 
@@ -70,9 +72,9 @@ class CreateParticles {
   }
 
   bindEvents() {
-    document.addEventListener( 'mousedown', this.onMouseDown.bind( this ));
     document.addEventListener( 'mousemove', this.onMouseMove.bind( this ));
-    document.addEventListener( 'mouseup', this.onMouseUp.bind( this ));
+    // document.addEventListener( 'mousedown', this.onMouseDown.bind( this ));
+    // document.addEventListener( 'mouseup', this.onMouseUp.bind( this ));
   }
 
   onMouseDown(event){
