@@ -183,10 +183,19 @@
 @keyframes logoAnim {
   from {
     opacity: 0;
-    filter: blur(500px);
   }
   to {
     opacity: 1;
-    filter: blur(0);
   }
+}
+
+#magic {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  display: block;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  animation: logoAnim 1s 1s ease-out forwards;
 }
