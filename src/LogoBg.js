@@ -27,7 +27,7 @@ class CreateParticles {
     this.data = {
       text: 'nodel inc.',
       amount: 1500,
-      particleSize: .5,
+      particleSize: .2,
       particleColor: 0xffffff,
       textSize: 16,
       area: 80,
@@ -310,7 +310,7 @@ class CreateParticles {
     const material = new THREE.ShaderMaterial( {
 
       uniforms: {
-        color: { value: new THREE.Color( 0xffffff ) },
+        color: { value: new THREE.Color( 0x000000 ) },
         pointTexture: { value: this.particleImg },
         uAlpha: { value: this.data.alpha }
       },
@@ -404,7 +404,7 @@ class Environment {
   }
 
   createRenderer() {
-    this.renderer = new THREE.WebGLRenderer({ alpha: true });
+    this.renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     this.renderer.setClearColor(0x000000, 0);
     this.renderer.setSize( this.container.clientWidth, this.container.clientHeight );
 
