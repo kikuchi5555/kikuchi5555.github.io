@@ -49,7 +49,7 @@ class CreateParticles {
     this.createText();
 
     this.mouse.x = 0;
-    this.mouse.y = -.1;
+    this.mouse.y = .05;
 
     const vector = new THREE.Vector3( this.mouse.x, this.mouse.y, 0.5);
     vector.unproject( this.camera );
@@ -73,7 +73,6 @@ class CreateParticles {
 
   bindEvents() {
     document.addEventListener( 'mousemove', this.onMouseMove.bind( this ));
-    document.addEventListener( 'touchmove', this.onTouchMove.bind( this ));
     // document.addEventListener( 'mousedown', this.onMouseDown.bind( this ));
     // document.addEventListener( 'mouseup', this.onMouseUp.bind( this ));
   }
@@ -107,10 +106,6 @@ class CreateParticles {
     }
       this.mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
       this.mouse.y = - ( (event.clientY + window.pageYOffset) / window.innerHeight ) * 2 + 1;
-  }
-
-  onTouchMove(event) { 
-    event.preventDefault();
   }
 
   render( level ){ 
@@ -239,7 +234,7 @@ class CreateParticles {
     let geometry = new THREE.ShapeGeometry( shapes );
     geometry.computeBoundingBox();
   
-    const xMid = - 0.5 * ( geometry.boundingBox.max.x - geometry.boundingBox.min.x );
+    const xMid = - 0.5 * ( geometry.boundingBox.max.x - geometry.boundingBox.min.x);
     const yMid = - 0.5 * (geometry.boundingBox.max.y - geometry.boundingBox.min.y);
 
     geometry.center();
@@ -292,6 +287,7 @@ class CreateParticles {
     let geoParticles = new THREE.BufferGeometry().setFromPoints( thePoints );
     geoParticles.translate( xMid, yMid, 0 );
     geoParticles.scale( .1, -.1, 0 );
+    geoParticles.translate( 0, 2., 0 );
         
     geoParticles.setAttribute( 'customColor', new THREE.Float32BufferAttribute( colors, 3 ) );
     geoParticles.setAttribute( 'size', new THREE.Float32BufferAttribute( sizes, 1) );
