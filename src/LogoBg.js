@@ -23,6 +23,7 @@ class CreateParticles {
     this.colorChange = new THREE.Color();
 
     this.buttom = false;
+    this.timeoutId = null;
 
     this.data = {
       text: 'nodel inc.',
@@ -102,8 +103,20 @@ class CreateParticles {
 
   onScroll(event) {
     if (window.innerWidth < 769) {
-      this.mouse.x = -1.;
-      this.mouse.y = -1.;
+      if (this.mouse.x === -1. && this.mouse.y === -1.) {
+        this.mouse.x = 0.;
+        this.mouse.y = 0.;
+      }
+      this.mouse.x += Math.sin(window.pageYOffset * 0.2) * 0.2;
+      this.mouse.y += Math.cos(window.pageYOffset * 0.1) * 0.1;
+
+      clearTimeout( this.timeoutId ) ;
+
+      this.timeoutId = setTimeout(() => {
+        this.mouse.x = -1.;
+        this.mouse.y = -1.;
+      }, 1000 ) ;
+
       return;
     }
       this.mouse.x = ( this.clientPosition.x / window.innerWidth ) * 2 - 1;
