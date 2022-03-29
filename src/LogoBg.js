@@ -399,11 +399,11 @@ class Environment {
 
   bindEvents(){
     window.addEventListener( 'resize', this.onWindowResize.bind( this ));
-    
   }
 
   setup(){ 
     this.createParticles = new CreateParticles( this.scene, this.font, this.path, this.particle, this.camera, this.renderer );
+    this.container.classList.add("active");
   }
 
   render() {
