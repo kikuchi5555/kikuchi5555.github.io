@@ -107,12 +107,15 @@ class CreateParticles {
       const pageY = window.pageYOffset;
       if (this.mouse.x === -1. && this.mouse.y === -1.) {
         this.mouse.y = 0.;
+        this.mouse.x = 0.;
       }
 
       if (pageY <= this.scroll) {
-        this.mouse.x -= 0.05;
+        this.mouse.x += 0.01;
+        this.data.area -= 0.05;
       } else {
-        this.mouse.x += 0.05;
+        this.mouse.x -= 0.01;
+        this.data.area += 0.05;
       }
       this.scroll = pageY;
 
