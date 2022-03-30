@@ -24,6 +24,7 @@ class CreateParticles {
 
     this.buttom = false;
     this.timeoutId = null;
+    this.scroll = 0;
 
     this.data = {
       text: 'nodel inc.',
@@ -103,10 +104,17 @@ class CreateParticles {
 
   onScroll(event) {
     if (window.innerWidth < 769) {
+      const pageY = window.pageYOffset;
       if (this.mouse.x === -1. && this.mouse.y === -1.) {
         this.mouse.y = 0.;
       }
-      this.mouse.x += 0.05;
+
+      if (pageY <= this.scroll) {
+        this.mouse.x -= 0.05;
+      } else {
+        this.mouse.x += 0.05;
+      }
+      this.scroll = pageY;
 
       clearTimeout( this.timeoutId ) ;
 
