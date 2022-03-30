@@ -324,7 +324,7 @@ class CreateParticles {
     let geoParticles = new THREE.BufferGeometry().setFromPoints( thePoints );
     geoParticles.translate( xMid, yMid, 0 );
     geoParticles.scale( .15, -.15, 0 );
-    geoParticles.translate( .2, 2., 0 );
+    geoParticles.translate( .4, 2., 0 );
         
     geoParticles.setAttribute( 'customColor', new THREE.Float32BufferAttribute( colors, 3 ) );
     geoParticles.setAttribute( 'size', new THREE.Float32BufferAttribute( sizes, 1) );
