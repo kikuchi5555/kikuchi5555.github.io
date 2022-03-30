@@ -111,10 +111,10 @@ class CreateParticles {
       }
 
       if (pageY <= this.scroll) {
-        this.mouse.x += 0.01;
+        this.mouse.x -= 0.01;
         this.data.area -= 0.05;
       } else {
-        this.mouse.x -= 0.01;
+        this.mouse.x += 0.01;
         this.data.area += 0.05;
       }
       this.scroll = pageY;
