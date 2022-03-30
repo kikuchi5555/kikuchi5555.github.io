@@ -106,7 +106,7 @@ class CreateParticles {
       if (this.mouse.x === -1. && this.mouse.y === -1.) {
         this.mouse.y = 0.;
       }
-      this.mouse.x += 0.01;
+      this.mouse.x += 0.05;
 
       clearTimeout( this.timeoutId ) ;
 
