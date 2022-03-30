@@ -104,11 +104,9 @@ class CreateParticles {
   onScroll(event) {
     if (window.innerWidth < 769) {
       if (this.mouse.x === -1. && this.mouse.y === -1.) {
-        this.mouse.x = 0.;
         this.mouse.y = 0.;
       }
-      this.mouse.x += Math.sin(window.pageYOffset * 0.2) * 0.2;
-      this.mouse.y += Math.cos(window.pageYOffset * 0.1) * 0.1;
+      this.mouse.x += 0.01;
 
       clearTimeout( this.timeoutId ) ;
 
