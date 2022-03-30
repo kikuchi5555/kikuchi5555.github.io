@@ -113,7 +113,7 @@ class CreateParticles {
       this.timeoutId = setTimeout(() => {
         this.mouse.x = -1.;
         this.mouse.y = -1.;
-      }, 1000 ) ;
+      }, 500 ) ;
 
       return;
     }
