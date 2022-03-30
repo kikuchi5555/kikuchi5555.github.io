@@ -39,7 +39,7 @@ function App() {
             <LazyLoad duration={startSkillAnim + 1200}><li className="skill__item"><EnterText>Vue.js</EnterText></li></LazyLoad>
             <LazyLoad duration={startSkillAnim + 1400}><li className="skill__item"><EnterText>React</EnterText></li></LazyLoad>
             <LazyLoad duration={startSkillAnim + 1600}><li className="skill__item"><EnterText>Angular.js</EnterText></li></LazyLoad>
-            <LazyLoad duration={startSkillAnim + 1800}><li className="skill__item"><EnterText>etc..</EnterText></li></LazyLoad>
+            <LazyLoad duration={startSkillAnim + 1800}><li className="skill__item"><EnterText>etc...</EnterText></li></LazyLoad>
           </ul>
         </div>
         <div className='scroll'>
