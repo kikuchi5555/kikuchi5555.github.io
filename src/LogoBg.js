@@ -107,7 +107,7 @@ class CreateParticles {
       const pageY = window.pageYOffset;
       this.mouse.y = Math.random() > 0.5 ? Math.random() * 0.2 : Math.random() * -0.2;
       this.mouse.x = Math.random() > 0.5 ? Math.random() * 0.8 : Math.random() * -0.8;
-      this.data.area += 1;
+      this.data.area = 20;
       this.scroll = pageY;
 
       clearTimeout( this.timeoutId ) ;
