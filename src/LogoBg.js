@@ -106,17 +106,11 @@ class CreateParticles {
     if (window.innerWidth < 769) {
       const pageY = window.pageYOffset;
       if (this.mouse.x === -1. && this.mouse.y === -1.) {
-        this.mouse.y = 0.;
-        this.mouse.x = 0.;
+        // -1. から 1. でランダムな値
+        this.mouse.y = Math.random() > 0.5 ? Math.random() * 0.2 : Math.random() * -0.2;
+        this.mouse.x = Math.random() > 0.5 ? Math.random() * 0.8 : Math.random() * -0.8;
       }
-
-      if (pageY <= this.scroll) {
-        this.mouse.x -= 0.01;
-        this.data.area -= 0.05;
-      } else {
-        this.mouse.x += 0.01;
-        this.data.area += 0.05;
-      }
+      this.data.area += 1;
       this.scroll = pageY;
 
       clearTimeout( this.timeoutId ) ;
@@ -124,10 +118,12 @@ class CreateParticles {
       this.timeoutId = setTimeout(() => {
         this.mouse.x = -1.;
         this.mouse.y = -1.;
-      }, 500 ) ;
+        this.data.area = 80;
+      }, 200 ) ;
 
       return;
     }
+      this.data.area = 80;
       this.mouse.x = ( this.clientPosition.x / window.innerWidth ) * 2 - 1;
       this.mouse.y = - ( (this.clientPosition.y + window.pageYOffset) / window.innerHeight ) * 2 + 1;
   }
