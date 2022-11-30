@@ -105,11 +105,8 @@ class CreateParticles {
   onScroll(event) {
     if (window.innerWidth < 769) {
       const pageY = window.pageYOffset;
-      if (this.mouse.x === -1. && this.mouse.y === -1.) {
-        // -1. から 1. でランダムな値
-        this.mouse.y = Math.random() > 0.5 ? Math.random() * 0.2 : Math.random() * -0.2;
-        this.mouse.x = Math.random() > 0.5 ? Math.random() * 0.8 : Math.random() * -0.8;
-      }
+      this.mouse.y = Math.random() > 0.5 ? Math.random() * 0.2 : Math.random() * -0.2;
+      this.mouse.x = Math.random() > 0.5 ? Math.random() * 0.8 : Math.random() * -0.8;
       this.data.area += 1;
       this.scroll = pageY;
 
