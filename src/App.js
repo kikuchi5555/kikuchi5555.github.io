@@ -53,7 +53,7 @@ function App() {
               <th>社名</th><td>株式会社nodel（ノデル）<br />nodel inc.</td>
             </tr>
             <tr>
-              <th>所在地</th><td>東京都三鷹市井の頭1丁目7-5 AINA井の頭212</td>
+              <th>所在地</th><td>東京都西東京市保谷町3丁目25-17 コンフォート柳沢202</td>
             </tr>
             <tr>
               <th>役員</th><td>代表取締役  菊地 哲郎</td>
