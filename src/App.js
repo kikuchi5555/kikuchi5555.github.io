@@ -53,7 +53,7 @@ function App() {
               <th>社名</th><td>株式会社nodel（ノデル）<br />nodel inc.</td>
             </tr>
             <tr>
-              <th>所在地</th><td>東京都西東京市保谷町3丁目25-17 コンフォート柳沢202</td>
+              <th>所在地</th><td>東京都西東京市南町5丁目3-5 サウスタウン201</td>
             </tr>
             <tr>
               <th>役員</th><td>代表取締役  菊地 哲郎</td>
@@ -81,7 +81,7 @@ function App() {
         </table>
       </div>
       {/* <div id="pointer" className='pointer' /> */}
-      <div className='copyright'>2022, nodel inc.</div>
+      <div className='copyright'>2025, nodel inc.</div>
       <div className="logo-container">
         <LogoBg />
       </div>
