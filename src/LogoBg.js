@@ -75,67 +75,50 @@ class CreateParticles {
   }
 
   bindEvents() {
+    document.addEventListener( 'touchmove', this.onTouchMove.bind( this ));
     document.addEventListener( 'mousemove', this.onMouseMove.bind( this ));
     document.addEventListener( 'scroll', this.onScroll.bind( this ));
-    // document.addEventListener( 'mousedown', this.onMouseDown.bind( this ));
+    document.addEventListener( 'touchstart', this.onTouchStart.bind( this ));
+    document.addEventListener( 'touchend', this.onTouchEnd.bind( this ));
     // document.addEventListener( 'mouseup', this.onMouseUp.bind( this ));
   }
 
-  onMouseDown(event){
-    this.mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-    this.mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
-
-    const vector = new THREE.Vector3( this.mouse.x, this.mouse.y, 0.5);
-    vector.unproject( this.camera );
-    const dir = vector.sub( this.camera.position ).normalize();
-    const distance = - this.camera.position.z / dir.z;
-    this.currenPosition = this.camera.position.clone().add( dir.multiplyScalar( distance ) );
-    // eslint-disable-next-line no-unused-vars
-    const pos = this.particles.geometry.attributes.position;
-    this.buttom = true;
-    this.data.ease = .01;
-    
+  onTouchStart(event){
+    if (window.innerWidth >= 769) {return;}
+    const touch = event.touches[0];
+    this.clientPosition.x = touch.clientX;
+    this.clientPosition.y = touch.clientY;
+    this.mouse.x = ( touch.clientX / window.innerWidth ) * 2 - 1;
+    this.mouse.y = - ( (touch.clientY + window.pageYOffset) / window.innerHeight ) * 2 + 1;
   }
 
-  onMouseUp(){
-    this.buttom = false;
-    this.data.ease = .05;
+  onTouchEnd(){
+    this.mouse.x = -1.;
+    this.mouse.y = -1.;
   }
 
   onScroll(event) {
-    if (window.innerWidth < 769) {
-      const pageY = window.pageYOffset;
-      this.mouse.y = Math.random() > 0.5 ? Math.random() * 0.2 : Math.random() * -0.2;
-      this.mouse.x = Math.random() > 0.5 ? Math.random() * 0.8 : Math.random() * -0.8;
-      this.data.area = 20;
-      this.scroll = pageY;
+    if (window.innerWidth < 769) {return;}
+    this.data.area = 80;
+    this.mouse.x = ( this.clientPosition.x / window.innerWidth ) * 2 - 1;
+    this.mouse.y = - ( (this.clientPosition.y + window.pageYOffset) / window.innerHeight ) * 2 + 1;
+  }
 
-      clearTimeout( this.timeoutId ) ;
-
-      this.timeoutId = setTimeout(() => {
-        this.mouse.x = -1.;
-        this.mouse.y = -1.;
-        this.data.area = 80;
-      }, 200 ) ;
-
-      return;
-    }
-      this.data.area = 80;
-      this.mouse.x = ( this.clientPosition.x / window.innerWidth ) * 2 - 1;
-      this.mouse.y = - ( (this.clientPosition.y + window.pageYOffset) / window.innerHeight ) * 2 + 1;
+  onTouchMove(event) { 
+    if (window.innerWidth >= 769) {return;}
+    const touch = event.touches[0];
+    this.clientPosition.x = touch.clientX;
+    this.clientPosition.y = touch.clientY;
+    this.mouse.x = ( touch.clientX / window.innerWidth ) * 2 - 1;
+    this.mouse.y = - ( (touch.clientY + window.pageYOffset) / window.innerHeight ) * 2 + 1;
   }
 
   onMouseMove(event) { 
+    if (window.innerWidth < 769) {return;}
     this.clientPosition.x = event.clientX;
     this.clientPosition.y = event.clientY;
-
-    if (window.innerWidth < 769) {
-      this.mouse.x = -1.;
-      this.mouse.y = -1.;
-      return;
-    }
-      this.mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-      this.mouse.y = - ( (event.clientY + window.pageYOffset) / window.innerHeight ) * 2 + 1;
+    this.mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+    this.mouse.y = - ( (event.clientY + window.pageYOffset) / window.innerHeight ) * 2 + 1;
   }
 
   render( level ){ 
@@ -463,114 +446,6 @@ export default function LogoBg() {
     }
     
     preload ();
-
-    // const scene = new THREE.Scene();
-
-    // const renderer = new THREE.WebGLRenderer({
-    //   canvas: document.querySelector('#logo-bg'),
-    //   alpha: true,
-    //   antialias: true
-    // });
-
-    // // カメラ
-    // var camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 1000 );
-    // camera.position.set(0, 0, 10);
-
-    // onResize();
-
-    // // ここから表示処理
-    // // =============================
-
-    // // ライト
-    // var light = new THREE.AmbientLight( 0xffffff );
-    // scene.add( light );
-
-    // // 画像を読み込む
-    // var texture = new THREE.TextureLoader().load(Logo,
-    // (tex) => { // 読み込み完了時
-    //     // 縦横比を保って適当にリサイズ
-    //     const w = 1.8;
-    //     const h = tex.image.height/(tex.image.width/w);
-
-    //     // 平面
-    //     const geometry = new THREE.PlaneBufferGeometry(1, 1, 32, 32)
-    //     // const material = new THREE.MeshPhongMaterial( { map:texture } );
-
-    //     const uniforms = {
-    //       uTexture: {
-    //         //texture data
-    //         value: texture
-    //       },
-    //       uOffset: {
-    //         //distortion strength
-    //         value: new THREE.Vector2(0.0, 0.0)
-    //       },
-    //       uAlpha: {
-    //         //opacity
-    //         value: 0
-    //       }
-      
-    //     }
-
-    //     const material = new THREE.ShaderMaterial({
-    //       uniforms: uniforms,
-    //       vertexShader: `
-    //         varying vec2 vUv;
-      
-    //         void main() {
-    //           vUv = uv;
-    //           vec3 newPosition = position;
-    //           gl_Position = projectionMatrix * modelViewMatrix * vec4( newPosition, 1.0 );
-    //         }
-    //       `,
-    //       fragmentShader: `
-    //         uniform sampler2D uTexture;
-    //         uniform vec2 uOffset;
-    //         varying vec2 vUv;
-           
-    //         void main() {
-    //           float r = texture2D(uTexture,vUv + uOffset).r;
-    //           vec2 gb = texture2D(uTexture,vUv).gb;
-    //           float a = texture2D(uTexture,vUv).a;
-    //           gl_FragColor = vec4(r,gb,a);
-    //         }
-    //       `,
-    //       transparent: true
-    //     });
-
-    //     const plane = new THREE.Mesh( geometry, material );
-    //     plane.scale.set(w, h, 1);
-    //     scene.add( plane );
-    // });
-
-    // // レンダリング
-    // function render() {
-    //     requestAnimationFrame(render);
-    //     renderer.render(scene, camera);
-    // }
-    // render();
-
-    // // ===========================
-
-    // // リサイズイベント発生時に実行
-    // window.addEventListener('resize', onResize);
-
-    // function onResize() {
-    //   // サイズを取得
-    //   const width = window.innerWidth;
-    //   const height = window.innerHeight;
-
-    //   // レンダラーのサイズを調整する
-    //   renderer.setPixelRatio(window.devicePixelRatio);
-    //   renderer.setSize(width, height);
-
-    //   camera.aspect = width / height;
-    //   camera.updateProjectionMatrix()
-    // }
-
-    // return () => {
-    //   window.removeEventListener('resize', onResize);
-    // }
   }, []);
 
   return (

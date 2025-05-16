@@ -2,28 +2,15 @@ import React, { useRef, useState, useEffect } from 'react';
 import './css/App.scss';
 import Animation from './Animation'
 import LogoBg from './LogoBg'
-// import Logo from './img/logo.svg'
 
 function App() {
   const startDetailAnim = 1500
   const startSkillAnim = 2000
 
-  // useEffect(() => {
-  //   const pointer = document.querySelector('#pointer');
-  //   document.addEventListener('mousemove', (event) => {
-  //     pointer.style.left = `${event.clientX}px`;
-  //     pointer.style.top = `${event.clientY}px`;
-  //   })
-  // }, []);
-
   return (
     <div className="app">
       <div className="mv">
-        {/* <div className="logo">
-          <img src={Logo} alt="nodel inc." />
-        </div> */}
         <div className="detail">
-          {/* <h1 className="detail__heading"><LazyLoad duration={startDetailAnim}><EnterText>nodel inc.</EnterText></LazyLoad></h1> */}
           <p className="detail__text">
             <LazyLoad duration={startDetailAnim + 400}><EnterText>Front-end Development</EnterText><br/></LazyLoad>
             <LazyLoad duration={startDetailAnim + 800}><EnterText>Web Design</EnterText><br/></LazyLoad>
@@ -32,14 +19,13 @@ function App() {
         </div>
         <div className="skill">
           <ul className="skill__list">
-            <LazyLoad duration={startSkillAnim}><li className="skill__item"><EnterText>CSS/SCSS/Sass/Stylus</EnterText></li></LazyLoad>
-            <LazyLoad duration={startSkillAnim + 400}><li className="skill__item"><EnterText>JavaScript</EnterText></li></LazyLoad>
-            <LazyLoad duration={startSkillAnim + 800}><li className="skill__item"><EnterText>TypeScript</EnterText></li></LazyLoad>
-            <LazyLoad duration={startSkillAnim + 1000}><li className="skill__item"><EnterText>jQuery</EnterText></li></LazyLoad>
-            <LazyLoad duration={startSkillAnim + 1200}><li className="skill__item"><EnterText>Vue.js</EnterText></li></LazyLoad>
-            <LazyLoad duration={startSkillAnim + 1400}><li className="skill__item"><EnterText>React</EnterText></li></LazyLoad>
-            <LazyLoad duration={startSkillAnim + 1600}><li className="skill__item"><EnterText>Angular.js</EnterText></li></LazyLoad>
-            <LazyLoad duration={startSkillAnim + 1800}><li className="skill__item"><EnterText>etc...</EnterText></li></LazyLoad>
+            <LazyLoad duration={startSkillAnim}><li className="skill__item"><EnterText>HTML / CSS</EnterText></li></LazyLoad>
+            <LazyLoad duration={startSkillAnim + 400}><li className="skill__item"><EnterText>TypeScript</EnterText></li></LazyLoad>
+            <LazyLoad duration={startSkillAnim + 800}><li className="skill__item"><EnterText>JavaScript</EnterText></li></LazyLoad>
+            <LazyLoad duration={startSkillAnim + 1000}><li className="skill__item"><EnterText>Next.js</EnterText></li></LazyLoad>
+            <LazyLoad duration={startSkillAnim + 1200}><li className="skill__item"><EnterText>React / Vue</EnterText></li></LazyLoad>
+            <LazyLoad duration={startSkillAnim + 1400}><li className="skill__item"><EnterText>jQuery</EnterText></li></LazyLoad>
+            <LazyLoad duration={startSkillAnim + 1600}><li className="skill__item"><EnterText>etc...</EnterText></li></LazyLoad>
           </ul>
         </div>
         <div className='scroll'>
