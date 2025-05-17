@@ -30,7 +30,7 @@ function Stars() {
 }
 
 
-export default function Animation() {
+export default function ParticleBg() {
   return (
     <Canvas
       resize={{

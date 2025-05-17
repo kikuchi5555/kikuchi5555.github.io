@@ -1,37 +1,23 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './css/App.scss';
-import Animation from './Animation'
-import LogoBg from './LogoBg'
+import Template1 from './components/Template1'
+import Template2 from './components/Template2'
+import Template3 from './components/Template3'
+import Template4 from './components/Template4'
 
 function App() {
-  const startDetailAnim = 1500
-  const startSkillAnim = 2000
+  const [templateType, setTemplateType] = useState();
+
+  useEffect(() => {
+    setTemplateType(Math.floor(Math.random() * 4) + 1)
+  }, []);
 
   return (
     <div className="app">
-      <div className="mv">
-        <div className="detail">
-          <p className="detail__text">
-            <LazyLoad duration={startDetailAnim + 400}><EnterText>Front-end Development</EnterText><br/></LazyLoad>
-            <LazyLoad duration={startDetailAnim + 800}><EnterText>Web Design</EnterText><br/></LazyLoad>
-            <LazyLoad duration={startDetailAnim + 1200}><a href="mailto:info&#64;nodel.jp" target="_blank" rel="noopener noreferrer"><EnterText>contact</EnterText></a></LazyLoad>
-          </p>
-        </div>
-        <div className="skill">
-          <ul className="skill__list">
-            <LazyLoad duration={startSkillAnim}><li className="skill__item"><EnterText>HTML / CSS</EnterText></li></LazyLoad>
-            <LazyLoad duration={startSkillAnim + 400}><li className="skill__item"><EnterText>TypeScript</EnterText></li></LazyLoad>
-            <LazyLoad duration={startSkillAnim + 800}><li className="skill__item"><EnterText>JavaScript</EnterText></li></LazyLoad>
-            <LazyLoad duration={startSkillAnim + 1000}><li className="skill__item"><EnterText>Next.js</EnterText></li></LazyLoad>
-            <LazyLoad duration={startSkillAnim + 1200}><li className="skill__item"><EnterText>React / Vue</EnterText></li></LazyLoad>
-            <LazyLoad duration={startSkillAnim + 1400}><li className="skill__item"><EnterText>jQuery</EnterText></li></LazyLoad>
-            <LazyLoad duration={startSkillAnim + 1600}><li className="skill__item"><EnterText>etc...</EnterText></li></LazyLoad>
-          </ul>
-        </div>
-        <div className='scroll'>
-          <LazyLoad duration={startSkillAnim + 2400}><EnterText>scroll down ↓</EnterText></LazyLoad>
-        </div>
-      </div>
+      {templateType === 1 && <Template1 />}
+      {templateType === 2 && <Template2 />}
+      {templateType === 3 && <Template3 />}
+      {templateType === 4 && <Template4 />}
       <div className="company-info">
         <table>
           <tbody>
@@ -66,53 +52,15 @@ function App() {
           </tbody>
         </table>
       </div>
-      {/* <div id="pointer" className='pointer' /> */}
       <div className='copyright'>2025, nodel inc.</div>
-      <div className="logo-container">
-        <LogoBg />
-      </div>
-      <div className="canvas-container">
-        <Animation></Animation>
+      <div className='reload'>
+        <button onClick={(e) => {
+          e.preventDefault();
+          window.location.reload();
+        }}>次はどんな雰囲気？</button>
       </div>
     </div>
   );
-}
-
-function LazyLoad(props) {
-  const [isLoad, setLoad] = useState(true)
-
-  setTimeout(() => {
-    setLoad(false)
-  }, props.duration)
-
-  return isLoad ? '' : props.children
-}
-
-function EnterText(props) {
-  const characterList = props.children.split('')
-
-  const [text, setText] = useState('');
-  const refText = useRef(text);
-
-  useEffect(() => {
-    refText.current = text;
-  }, [text]);
-
-  useEffect(() => {
-    let i = 0
-    const interval = setInterval(() => {
-      setText(refText.current + characterList[i])
-      i++
-      if (i > characterList.length - 1) {
-        clearInterval(interval);
-      }
-    }, 40);
-  // eslint-disable-next-line
-  }, []);
-
-  return (
-    <span>{text}</span>
-  )
 }
 
 export default App;

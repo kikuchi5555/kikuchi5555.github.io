@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react'
 
 import * as THREE from 'three/src/Three'
-// import Logo from './img/logo_texture.png'
-import LogoSVG from './img/logo.svg'
-import particleImage from './img/particle.png'
+import LogoSVG from '../../img/logo.svg'
+import particleImage from '../../img/particle.png'
 import { SVGLoader } from "three/examples/jsm/loaders/SVGLoader";
 
 class CreateParticles {
@@ -122,9 +121,6 @@ class CreateParticles {
   }
 
   render( level ){ 
-    const time = ((.01 * performance.now())%12)/12;
-    const zigzagTime = (1 + (Math.sin( time * 2 * Math.PI )))/6;
-
     this.raycaster.setFromCamera( this.mouse, this.camera );
 
     const intersects = this.raycaster.intersectObject( this.planeArea );

@@ -55,7 +55,6 @@
   align-items: flex-end;
   padding-right: 48px;
   text-align: right;
-  color: #333;
   z-index: 11;
   bottom: 30%;
   @media screen and (max-width: 768px) {
@@ -64,7 +63,7 @@
 
   &__text {
     margin: 0;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     line-height: 2;
     height: 4em;
   }
@@ -74,9 +73,8 @@
   position: absolute;
   left: 0;
   top: 20px;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   z-index: 1;
-  color: #333;
 
   &__list {
     margin: 0;
@@ -219,5 +217,28 @@
   background: rgba(0,0,0, .5);
   @media screen and (max-width: 768px) {
     display: none;
+  }
+}
+
+.reload {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 99999;
+
+  button {
+    border: none;
+    background: rgba(0,0,0,0.75);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 100px;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all linear 0.3s;
+    &:hover {
+      background: rgba(255,255,255,0.5);
+      color: #666;
+    }
   }
 }

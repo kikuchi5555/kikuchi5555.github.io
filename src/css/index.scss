@@ -1,13 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100..800&display=swap');
+
 html {
   font-size: 10px;
+}
+
+.template1 {
   background: #f4f4f5;
+  color: #666;
+  .mv {
+    font-optical-sizing: auto;
+    font-family: "Martian Mono", monospace;
+  }
+  a {
+    color: #999;
+  }
 }
 
 body {
   margin: 0;
   font-family: serif;
   letter-spacing: .1em;
-  // letter-spacing: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
