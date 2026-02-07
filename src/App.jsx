@@ -1,23 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './css/App.scss';
 import Template1 from './components/Template1'
-import Template2 from './components/Template2'
-import Template3 from './components/Template3'
-import Template4 from './components/Template4'
 
 function App() {
-  const [templateType, setTemplateType] = useState();
-
-  useEffect(() => {
-    setTemplateType(Math.floor(Math.random() * 4) + 1)
-  }, []);
-
   return (
     <div className="app">
-      {templateType === 1 && <Template1 />}
-      {templateType === 2 && <Template2 />}
-      {templateType === 3 && <Template3 />}
-      {templateType === 4 && <Template4 />}
+      <Template1 />
       <div className="company-info">
         <table>
           <tbody>
@@ -53,12 +41,6 @@ function App() {
         </table>
       </div>
       <div className='copyright'>2025, nodel inc.</div>
-      <div className='reload'>
-        <button onClick={(e) => {
-          e.preventDefault();
-          window.location.reload();
-        }}>次はどんな雰囲気？</button>
-      </div>
     </div>
   );
 }
