@@ -55,7 +55,6 @@
   align-items: flex-end;
   padding-right: 48px;
   text-align: right;
-  color: #333;
   z-index: 11;
   bottom: 30%;
   @media screen and (max-width: 768px) {
@@ -64,7 +63,7 @@
 
   &__text {
     margin: 0;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     line-height: 2;
     height: 4em;
   }
@@ -74,9 +73,8 @@
   position: absolute;
   left: 0;
   top: 20px;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   z-index: 1;
-  color: #333;
 
   &__list {
     margin: 0;
@@ -221,3 +219,4 @@
     display: none;
   }
 }
+
